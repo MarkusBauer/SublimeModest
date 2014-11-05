@@ -11,18 +11,8 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>match</key>
-			<string>//.*$</string>
-			<key>name</key>
-			<string>comment</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>/\*</string>
-			<key>end</key>
-			<string>\*/</string>
-			<key>name</key>
-			<string>comment</string>
+			<key>include</key>
+			<string>#comments</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -40,7 +30,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\s*(process)\s*([A-Za-z0-9_]+)\s*\(</string>
+			<string>\s*(process|function)\s*([A-Za-z0-9_]+)\s*\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -79,6 +69,10 @@
 		<dict>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
 				<dict>
 					<key>begin</key>
 					<string>({=)</string>
@@ -121,19 +115,86 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\bwhen|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process\b</string>
+					<string>\bwhen|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process|function\b</string>
 					<key>name</key>
 					<string>keyword.source.control.modest</string>
 				</dict>
 				<dict>
+					<key>begin</key>
+					<string>\bproperty\b</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.source.modest</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>;</string>
+					<key>name</key>
+					<string>propertyrule</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\b\-&gt;|&lt;&gt;|\[\]|initial|deadlock|timelock\b</string>
+							<key>name</key>
+							<string>keyword.source.modest</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>\bP|Pmax|Pmin|S(max|min)?|X|Xmax|Xmin|V|Vmax|Vmin|A|E|R|U|W|N\b</string>
+							<key>name</key>
+							<string>support.function.modest.inproperty</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#typelist</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#actions</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>keywords I don't know at the moment</string>
 					<key>match</key>
-					<string>\btau\b</string>
+					<string>\bclock|reward|var|patient|impatient|binary|broadcast|const|der|any|struct|datatype|delay|rate|palt|closed|open|urgent|invariant|return|restrict|option|property\b</string>
+					<key>name</key>
+					<string>keyword.source.modest</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\btau|τ|none|null\b</string>
 					<key>name</key>
 					<string>constant.language.modest</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#expressions</string>
+				</dict>
+			</array>
+		</dict>
+		<key>comments</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>//.*$</string>
+					<key>name</key>
+					<string>comment</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>end</key>
+					<string>\*/</string>
+					<key>name</key>
+					<string>comment</string>
 				</dict>
 			</array>
 		</dict>
@@ -177,7 +238,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\bint|bool|real\b</string>
+					<string>\bint|bool|real|float\b</string>
 					<key>name</key>
 					<string>storage.type.modest</string>
 				</dict>

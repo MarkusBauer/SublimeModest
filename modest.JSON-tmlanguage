@@ -3,6 +3,19 @@
 	"scopeName": "source.modest",
 	"fileTypes": ["modest"],
 	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
 		"typelist": {
 			"patterns": [
 				{
@@ -13,7 +26,7 @@
 					}
 				},
 				{
-					"match": "\\bint|bool|real\\b",
+					"match": "\\bint|bool|real|float\\b",
 					"name": "storage.type.modest"
 				}
 			]
@@ -21,6 +34,7 @@
 
 		"actions": {
 			"patterns": [
+				{ "include": "#comments" },
 				{
 					"name": "updates",
 					"begin": "({=)",
@@ -43,11 +57,46 @@
 				},
 				{
 					"name": "keyword.source.control.modest",
-					"match": "\\bwhen|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process\\b"
+					"match": "\\bwhen|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process|function\\b"
 				},
 				{
+					"name": "propertyrule",
+					"begin": "\\bproperty\\b",
+					"beginCaptures": {
+						"0": { "name": "keyword.source.modest" }
+					},
+					"end" : ";",
+					"patterns": [
+						{
+							"name": "keyword.source.modest",
+							"match": "\\b\\->|<>|\\[\\]|initial|deadlock|timelock\\b"
+						},
+						{
+							"name": "support.function.modest.inproperty", // I just like that color
+							"match": "\\bP|Pmax|Pmin|S(max|min)?|X|Xmax|Xmin|V|Vmax|Vmin|A|E|R|U|W|N\\b"
+						},
+						{ "include": "#typelist" },
+						{ "include": "#actions" }
+					]
+				},
+				{
+					"name": "keyword.source.modest",
+					"comment": "keywords I don't know at the moment",
+					"match": "\\bclock|reward|var|patient|impatient|binary|broadcast|const|der|any|struct|datatype|delay|rate|palt|closed|open|urgent|invariant|return|restrict|option|property\\b"
+				},
+			/*	
+			// FUNCTION
+
+			"true|false|stop|abort|action", "int", "real", "clock", "reward", "var", "bool", "patient", "impatient", "binary", "broadcast", "float", "exception", "const", "der", "any", 
+			"struct", "datatype", "tau", "τ", "alt", "delay", "rate", "palt", "do", "break", "while", "par", "closed", "open", "when", "urgent", "invariant", "function", "if", "then", "else", 
+			"return", "try", "throw", "catch", "process", "relabel", "by", "hide", "extend", "restrict", "option", "none", "null"
+
+In addition, between "property" and the next ";", the following are keywords, too:
+
+"->", "P", "Pmax", "Pmin", "S", "Smax", "Smin", "X", "Xmax", "Xmin", "V", "Vmax", "Vmin", "A", "E", "R", "U", "W", "N", "<>", "[]", "initial", "deadlock", "timelock"*/
+				{
 					"name": "constant.language.modest",
-					"match": "\\btau\\b"
+					"match": "\\btau|τ|none|null\\b"
 				},
 				{ "include": "#expressions" }
 			]
@@ -69,15 +118,7 @@
 	},
 
 	"patterns": [
-		{
-			"name": "comment",
-			"match": "//.*$"
-		},
-		{
-			"name": "comment",
-			"begin": "/\\*",
-			"end": "\\*/"
-		},
+		{ "include": "#comments" },
 		{
 			"name": "keyword.source.dcl",
 			"match": "\\b(action|exception)\\b",
@@ -86,7 +127,7 @@
 		{ "include": "#typelist", "comment": "variable declaration" },
 		{
 			"name": "process",
-			"begin": "\\s*(process)\\s*([A-Za-z0-9_]+)\\s*\\(",
+			"begin": "\\s*(process|function)\\s*([A-Za-z0-9_]+)\\s*\\(",
 			"end": "\\)",
 			"beginCaptures": {
 			    "1": { "name": "keyword.source.process" },
