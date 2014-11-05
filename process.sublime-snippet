@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+process ${1:name} (${2:}){
+	${3:code}
+}
+]]></content>
+	<tabTrigger>process</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

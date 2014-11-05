@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+if (${1:condition}) {
+	${2:Process}
+}else{
+	${3:Process}
+}
+]]></content>
+	<tabTrigger>if</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

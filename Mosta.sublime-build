@@ -1,0 +1,19 @@
+{
+	/*"
+	Edit the modest path in the first line. 
+	Go to the mosta.exe.config in the modest directory, and enter the path to your dot executable (if not in path:)
+	<setting name="DotPath" serializeAs="String">
+		<value>C:\Program Files (x86)\Appz\GraphViz\bin\dot.exe</value>
+	</setting>
+	"*/
+	"target": "buildmodest",
+	"cmd": ["mosta",
+		"$file", 
+		"-O", "$file.tmp.dot", // write to temporary output file
+		"-D", "png", "$file.png", // Run dot to convert to png file
+		"-Y", "-X", // Overwrite existing files, cleanup afterwards
+		"-E", // Open after run
+		"-F", "--no-invariants", "--no-deadlines", "--no-variable-optimization"],
+	"selector": "source.modest",
+	"file_regex": "^(.+):\\((\\d+),(\\d+)\\): (.*)$"
+}

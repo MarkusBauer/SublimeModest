@@ -1,0 +1,103 @@
+{
+	"name": "Modest",
+	"scopeName": "source.modest",
+	"fileTypes": ["modest"],
+	"repository": {
+		"typelist": {
+			"patterns": [
+				{
+					"name": "constant.numeric.modest",
+					"match": "\\((\\d+)\\s*(\\.\\.)\\s*(\\d+)\\)",
+					"captures": {
+					    "2": { "name": "keyword.source.dots" }
+					}
+				},
+				{
+					"match": "\\bint|bool|real\\b",
+					"name": "storage.type.modest"
+				}
+			]
+		},
+
+		"actions": {
+			"patterns": [
+				{
+					"name": "updates",
+					"begin": "({=)",
+					"end": "(=})",
+					"patterns": [
+						{ "include": "#expressions" }
+					],
+					"captures": {
+						"1": { "name": "string" },
+						"2": { "name": "string" }
+					}
+				},
+				{
+					"name": "keyword.source.modest",
+					"match": "::"
+				},
+				{
+					"name": "support.function.modest.action",
+					"match": "\\bstop|abort|break\\b"
+				},
+				{
+					"name": "keyword.source.control.modest",
+					"match": "\\bwhen|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process\\b"
+				},
+				{
+					"name": "constant.language.modest",
+					"match": "\\btau\\b"
+				},
+				{ "include": "#expressions" }
+			]
+		},
+
+		"expressions": {
+			"patterns": [
+				{
+					"name": "keyword.source.operators.modest",
+					"match": "[=\\+\\-\\*/<>!]=?",
+					"comment": "Not documented at all, so let's see..."
+				},
+				{
+					"name": "constant.numeric.literal",
+					"match": "\\b\\d+(\\.\\d+)?|true|false\\b"
+				}
+			]
+		}
+	},
+
+	"patterns": [
+		{
+			"name": "comment",
+			"match": "//.*$"
+		},
+		{
+			"name": "comment",
+			"begin": "/\\*",
+			"end": "\\*/"
+		},
+		{
+			"name": "keyword.source.dcl",
+			"match": "\\b(action|exception)\\b",
+			"comment": "declaration"
+		},
+		{ "include": "#typelist", "comment": "variable declaration" },
+		{
+			"name": "process",
+			"begin": "\\s*(process)\\s*([A-Za-z0-9_]+)\\s*\\(",
+			"end": "\\)",
+			"beginCaptures": {
+			    "1": { "name": "keyword.source.process" },
+			    "2": { "name": "entity.name.function" }
+			},
+			"patterns": [{ "include": "#typelist" }
+			],
+			"comment": "process declaration"
+		},
+
+		{ "include": "#actions" }
+	],
+	"uuid": "ea086210-cd15-4bdd-bb68-00d06438e277"
+}

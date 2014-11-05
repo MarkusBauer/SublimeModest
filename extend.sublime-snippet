@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+extend{ ${1:actions} }{
+	${2:Process}
+}
+]]></content>
+	<tabTrigger>extend</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

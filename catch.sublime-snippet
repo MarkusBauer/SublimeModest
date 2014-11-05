@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+catch ${1:excp} {
+	${2:Process}
+}
+]]></content>
+	<tabTrigger>catch</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

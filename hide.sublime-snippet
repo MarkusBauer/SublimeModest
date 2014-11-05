@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+hide {${1:actions}} {
+	${2:Process}
+}
+]]></content>
+	<tabTrigger>hide</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

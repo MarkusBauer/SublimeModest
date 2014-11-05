@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+par{
+	:: ${1:Process}
+}
+]]></content>
+	<tabTrigger>par</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

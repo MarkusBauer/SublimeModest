@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+alt{
+	:: ${1:Process}
+}
+]]></content>
+	<tabTrigger>alt</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

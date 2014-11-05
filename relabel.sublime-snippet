@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+relabel {${1:old actions}} by {${2:new actions}} {
+	${3:Process}
+}
+]]></content>
+	<tabTrigger>relabel</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

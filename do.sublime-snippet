@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+do{
+	:: ${1:Process}
+}
+]]></content>
+	<tabTrigger>do</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>
