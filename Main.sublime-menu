@@ -20,11 +20,10 @@
                                 "args": {"file": "${packages}/Modest/Modest.sublime-settings"},
                                 "caption": "Settings - Example"
                             },
-                            { "caption": "-" },
                             {
                                 "command": "open_file",
                                 "args": {"file": "${packages}/User/Modest.sublime-settings"},
-                                "caption": "Settings – User"
+                                "caption": "Settings - User"
                             }
                         ]
                     }
