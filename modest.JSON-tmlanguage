@@ -26,7 +26,7 @@
 					}
 				},
 				{
-					"match": "\\bint|bool|real|float\\b",
+					"match": "\\b(int|bool|real|float)\\b",
 					"name": "storage.type.modest"
 				}
 			]
@@ -53,11 +53,11 @@
 				},
 				{
 					"name": "support.function.modest.action",
-					"match": "\\bstop|abort|break\\b"
+					"match": "\\b(stop|abort|break)\\b"
 				},
 				{
 					"name": "keyword.source.control.modest",
-					"match": "\\bwhen|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process|function\\b"
+					"match": "\\b(when|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process|function)\\b"
 				},
 				{
 					"name": "propertyrule",
@@ -69,11 +69,11 @@
 					"patterns": [
 						{
 							"name": "keyword.source.modest",
-							"match": "\\b\\->|<>|\\[\\]|initial|deadlock|timelock\\b"
+							"match": "\\b(\\->|<>|\\[\\]|initial|deadlock|timelock)\\b"
 						},
 						{
 							"name": "support.function.modest.inproperty", // I just like that color
-							"match": "\\bP|Pmax|Pmin|S(max|min)?|X|Xmax|Xmin|V|Vmax|Vmin|A|E|R|U|W|N\\b"
+							"match": "\\b(P|Pmax|Pmin|S(max|min)?|X|Xmax|Xmin|V|Vmax|Vmin|A|E|R|U|W|N)\\b"
 						},
 						{ "include": "#typelist" },
 						{ "include": "#actions" }
@@ -82,7 +82,7 @@
 				{
 					"name": "keyword.source.modest",
 					"comment": "keywords I don't know at the moment",
-					"match": "\\bclock|reward|var|patient|impatient|binary|broadcast|const|der|any|struct|datatype|delay|rate|palt|closed|open|urgent|invariant|return|restrict|option|property\\b"
+					"match": "\\b(clock|reward|var|patient|impatient|binary|broadcast|const|der|any|struct|datatype|delay|rate|palt|closed|open|urgent|invariant|return|restrict|option|property)\\b"
 				},
 			/*	
 			// FUNCTION
@@ -96,7 +96,7 @@ In addition, between "property" and the next ";", the following are keywords, to
 "->", "P", "Pmax", "Pmin", "S", "Smax", "Smin", "X", "Xmax", "Xmin", "V", "Vmax", "Vmin", "A", "E", "R", "U", "W", "N", "<>", "[]", "initial", "deadlock", "timelock"*/
 				{
 					"name": "constant.language.modest",
-					"match": "\\btau|τ|none|null\\b"
+					"match": "\\b(tau|τ|none|null)\\b"
 				},
 				{ "include": "#expressions" }
 			]
@@ -111,7 +111,7 @@ In addition, between "property" and the next ";", the following are keywords, to
 				},
 				{
 					"name": "constant.numeric.literal",
-					"match": "\\b\\d+(\\.\\d+)?|true|false\\b"
+					"match": "\\b(\\d+(\\.\\d+)?|true|false)\\b"
 				}
 			]
 		}

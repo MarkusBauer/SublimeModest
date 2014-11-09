@@ -109,13 +109,13 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\bstop|abort|break\b</string>
+					<string>\b(stop|abort|break)\b</string>
 					<key>name</key>
 					<string>support.function.modest.action</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\bwhen|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process|function\b</string>
+					<string>\b(when|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process|function)\b</string>
 					<key>name</key>
 					<string>keyword.source.control.modest</string>
 				</dict>
@@ -138,13 +138,13 @@
 					<array>
 						<dict>
 							<key>match</key>
-							<string>\b\-&gt;|&lt;&gt;|\[\]|initial|deadlock|timelock\b</string>
+							<string>\b(\-&gt;|&lt;&gt;|\[\]|initial|deadlock|timelock)\b</string>
 							<key>name</key>
 							<string>keyword.source.modest</string>
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>\bP|Pmax|Pmin|S(max|min)?|X|Xmax|Xmin|V|Vmax|Vmin|A|E|R|U|W|N\b</string>
+							<string>\b(P|Pmax|Pmin|S(max|min)?|X|Xmax|Xmin|V|Vmax|Vmin|A|E|R|U|W|N)\b</string>
 							<key>name</key>
 							<string>support.function.modest.inproperty</string>
 						</dict>
@@ -162,13 +162,13 @@
 					<key>comment</key>
 					<string>keywords I don't know at the moment</string>
 					<key>match</key>
-					<string>\bclock|reward|var|patient|impatient|binary|broadcast|const|der|any|struct|datatype|delay|rate|palt|closed|open|urgent|invariant|return|restrict|option|property\b</string>
+					<string>\b(clock|reward|var|patient|impatient|binary|broadcast|const|der|any|struct|datatype|delay|rate|palt|closed|open|urgent|invariant|return|restrict|option|property)\b</string>
 					<key>name</key>
 					<string>keyword.source.modest</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\btau|τ|none|null\b</string>
+					<string>\b(tau|τ|none|null)\b</string>
 					<key>name</key>
 					<string>constant.language.modest</string>
 				</dict>
@@ -212,7 +212,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b\d+(\.\d+)?|true|false\b</string>
+					<string>\b(\d+(\.\d+)?|true|false)\b</string>
 					<key>name</key>
 					<string>constant.numeric.literal</string>
 				</dict>
@@ -238,7 +238,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\bint|bool|real|float\b</string>
+					<string>\b(int|bool|real|float)\b</string>
 					<key>name</key>
 					<string>storage.type.modest</string>
 				</dict>
