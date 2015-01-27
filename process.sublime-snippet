@@ -1,7 +1,7 @@
 <snippet>
 	<content><![CDATA[
 process ${1:name} (${2:}){
-	${3:code}
+	${3:// code}
 }
 ]]></content>
 	<tabTrigger>process</tabTrigger>

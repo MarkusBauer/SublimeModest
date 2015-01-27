@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+function ${1:type} ${2:name} (${3:}) =
+	${4:expression};
+]]></content>
+	<tabTrigger>function</tabTrigger>
+	<scope>source.modest</scope>
+</snippet>

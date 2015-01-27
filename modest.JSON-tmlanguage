@@ -1,3 +1,4 @@
+// [PackageDev] target_format: plist, ext: tmLanguage
 {
 	"name": "Modest",
 	"scopeName": "source.modest",
@@ -57,7 +58,7 @@
 				},
 				{
 					"name": "keyword.source.control.modest",
-					"match": "\\b(when|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|else|while|process|function)\\b"
+					"match": "\\b(when|alt|do|par|throw|try|catch|relabel|by|extend|hide|if|then|else|while|process|function)\\b"
 				},
 				{
 					"name": "propertyrule",
